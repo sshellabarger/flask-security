@@ -52,6 +52,14 @@ class PeeweeDatastore(Datastore):
 
     def delete(self, model):
         model.delete_instance()
+        
+class CouchDBDatastore(Datastore):
+    def put(self, model):
+        model.save()
+        return model
+
+    def delete(self, model):
+        model.delete_instance()
 
 
 class UserDatastore(object):
